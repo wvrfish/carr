@@ -1,6 +1,6 @@
 const smartcar = require('smartcar');
-const { cors } = require('../_cors');
-const { getValidAccessToken } = require('../_auth');
+const { cors } = require('../../_cors');
+const { getValidAccessToken } = require('../../_auth');
 
 module.exports = async function handler(req, res) {
   if (cors(req, res)) return;
