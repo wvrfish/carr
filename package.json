@@ -4,7 +4,7 @@
   "description": "Vercel serverless backend for Smartcar integration",
   "private": true,
   "engines": {
-    "node": ">=18"
+    "node": "20.x"
   },
   "scripts": {
     "dev": "vercel dev",
@@ -13,8 +13,5 @@
   "dependencies": {
     "cookie": "^0.7.2",
     "smartcar": "^10.4.0"
-  },
-  "devDependencies": {
-    "vercel": "^41.0.0"
   }
 }
