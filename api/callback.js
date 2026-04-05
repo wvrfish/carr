@@ -1,5 +1,6 @@
 const smartcar = require('smartcar');
 const { serialize } = require('cookie');
+const { cors } = require('./_cors');
 
 const client = new smartcar.AuthClient({
   clientId: process.env.SMARTCAR_CLIENT_ID,
@@ -17,9 +18,7 @@ const COOKIE_OPTIONS = {
 };
 
 module.exports = async function handler(req, res) {
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
+  if (cors(req, res)) return;
 
   const { code, error } = req.query;
 

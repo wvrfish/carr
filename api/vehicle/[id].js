@@ -1,5 +1,6 @@
 const smartcar = require('smartcar');
 const { parse, serialize } = require('cookie');
+const { cors } = require('../_cors');
 
 const client = new smartcar.AuthClient({
   clientId: process.env.SMARTCAR_CLIENT_ID,
@@ -44,9 +45,7 @@ async function getValidAccessToken(req, res) {
 }
 
 module.exports = async function handler(req, res) {
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
+  if (cors(req, res)) return;
 
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
