@@ -1,5 +1,5 @@
-import smartcar from 'smartcar';
-import { parse, serialize } from 'cookie';
+const smartcar = require('smartcar');
+const { parse, serialize } = require('cookie');
 
 const client = new smartcar.AuthClient({
   clientId: process.env.SMARTCAR_CLIENT_ID,
@@ -44,7 +44,7 @@ async function getValidAccessToken(req, res) {
   return sc_access_token;
 }
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
@@ -74,4 +74,4 @@ export default async function handler(req, res) {
   );
 
   res.status(200).json({ vehicles: vehicleDetails });
-}
+};

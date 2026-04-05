@@ -11,8 +11,8 @@
     "deploy": "vercel --prod"
   },
   "dependencies": {
-    "smartcar": "^3.0.0",
-    "cookie": "^0.7.2"
+    "cookie": "^0.7.2",
+    "smartcar": "^10.4.0"
   },
   "devDependencies": {
     "vercel": "^41.0.0"

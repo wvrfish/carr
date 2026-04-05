@@ -1,5 +1,5 @@
-import smartcar from 'smartcar';
-import { serialize } from 'cookie';
+const smartcar = require('smartcar');
+const { serialize } = require('cookie');
 
 const client = new smartcar.AuthClient({
   clientId: process.env.SMARTCAR_CLIENT_ID,
@@ -16,7 +16,7 @@ const COOKIE_OPTIONS = {
   maxAge: 60 * 60 * 24 * 60, // 60 days (matches Smartcar refresh token lifetime)
 };
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
@@ -49,4 +49,4 @@ export default async function handler(req, res) {
 
   const frontendUrl = process.env.FRONTEND_URL || '/';
   res.redirect(`${frontendUrl}/dashboard`);
-}
+};

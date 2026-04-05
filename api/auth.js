@@ -1,4 +1,4 @@
-import smartcar from 'smartcar';
+const smartcar = require('smartcar');
 
 const client = new smartcar.AuthClient({
   clientId: process.env.SMARTCAR_CLIENT_ID,
@@ -7,7 +7,7 @@ const client = new smartcar.AuthClient({
   testMode: process.env.SMARTCAR_TEST_MODE === 'true',
 });
 
-export default function handler(req, res) {
+module.exports = function handler(req, res) {
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
@@ -25,4 +25,4 @@ export default function handler(req, res) {
   );
 
   res.redirect(authUrl);
-}
+};
